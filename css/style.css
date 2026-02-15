@@ -10633,3 +10633,48 @@ body.sidebar-open .mainmenu-area.stricky-fixed {
   border-radius: 8px !important;
   position: relative !important;
 }
+/* ===== Make Trial Modal Same Size as Donate Modal ===== */
+#donateModal {
+  padding: 20px !important;              /* equal outer spacing */
+  align-items: center !important;        /* center vertically */
+}
+
+/* Control popup box size */
+#donateModal .donate-modal-content {
+  width: 100% !important;
+  max-width: 380px !important;           /* 🔥 same width as donate form */
+  padding: 16px 18px 18px !important;    /* reduce inner spacing */
+  border-radius: 8px !important;
+}
+
+/* Reduce field spacing so height becomes compact */
+#donateModal label {
+  font-size: 13px;
+  margin-top: 10px !important;
+}
+
+#donateModal input,
+#donateModal textarea {
+  padding: 8px !important;
+  font-size: 14px;
+  margin-bottom: 8px !important;
+}
+
+/* Smaller textarea like donate form */
+#donateModal textarea {
+  height: 60px !important;
+  resize: none;
+}
+
+/* Submit button size match */
+#donateModal .btn-submit {
+  padding: 10px !important;
+  font-size: 15px !important;
+}
+
+/* Mobile tuning */
+@media (max-width:768px){
+  #donateModal .donate-modal-content {
+    max-width: 92% !important;
+  }
+}
