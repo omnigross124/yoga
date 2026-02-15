@@ -10605,3 +10605,31 @@ body.sidebar-open .mainmenu-area.stricky-fixed {
 
 
 }}
+/* ✅ MODAL OVERLAY MUST CENTER */
+#donateModal{
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.6) !important;
+  z-index: 2147483647 !important;
+
+  display: none;                 /* hidden by default */
+  justify-content: center !important;
+  align-items: center !important;
+
+  padding: 15px !important;
+}
+
+/* ✅ when open */
+#donateModal.show{
+  display: flex !important;      /* THIS is what centers it */
+}
+
+/* ✅ popup box */
+#donateModal .donate-modal-content{
+  width: 100% !important;
+  max-width: 420px !important;
+  margin: 0 auto !important;     /* extra safety */
+  background: #fff !important;
+  border-radius: 8px !important;
+  position: relative !important;
+}

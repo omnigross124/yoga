@@ -654,7 +654,8 @@
            class="amount-input"
            id="donationAmountInput"
            placeholder="₹ Amount"
-           min="1">
+           min="1"
+           step="1">
   </td>
 
   <td valign="middle" style="text-align: center;" class="yellow-border">
@@ -1113,17 +1114,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* OPEN MODAL */
   customBtn.addEventListener("click", function () {
-    const amount = userAmountInput.value;
+  const raw = userAmountInput.value.trim();
+  const amount = Number(raw);
 
-    if (!amount || Number(amount) <= 0) {
-      alert("Please enter a valid donation amount");
-      return;
-    }
+  // ✅ must be a whole number AND >= 1
+  if (!raw || !Number.isInteger(amount) || amount < 1) {
+    alert("Invalid value. Please enter a donation amount of 1 or more (no decimals).");
+    return;
+  }
 
-    amountHidden.value = amount;
-    amountDisplay.value = amount;
-    modal.style.display = "flex";
-  });
+  amountHidden.value = amount;
+  amountDisplay.value = amount;
+  modal.style.display = "flex";
+});
+
 
   /* CLOSE MODAL */
   closeBtn.addEventListener("click", function () {
@@ -1143,7 +1147,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const name = donateForm.querySelector('[name="name"]').value.trim();
     const email = donateForm.querySelector('[name="email"]').value.trim();
     const phone = donateForm.querySelector('[name="phone"]').value.trim();
-    const amount = amountHidden.value;
+    const amount = Number(amountHidden.value);
+
+if (!Number.isInteger(amount) || amount < 1) {
+  alert("Invalid value. Donation amount must be 1 or more (no decimals).");
+  return;
+}
+
     const message = donateForm.querySelector('textarea[name="message"]').value.trim();
 
    /* 🔐 VALIDATION */

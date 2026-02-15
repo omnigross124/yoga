@@ -300,6 +300,7 @@
   transition:  background .2s ease-in-out;
 }
 #social_side_links li a:hover img {background: rgba(0, 0, 0, .2);}
+
 </style>
 
 <ul id="social_side_links">
@@ -959,16 +960,22 @@ document.addEventListener("DOMContentLoaded", function () {
   window.openTrialModal = function(amount) {
     document.getElementById("trialAmountHidden").value = amount;
     document.getElementById("trialAmountDisplay").value = amount;
-    modal.style.display = "flex";
+    modal.classList.add("show");
+document.body.classList.add("modal-open");
+
   };
 
   closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
+    modal.classList.remove("show");
+document.body.classList.remove("modal-open");
+
   });
 
   window.addEventListener("click", function (e) {
     if (e.target === modal) {
-      modal.style.display = "none";
+      modal.classList.remove("show");
+document.body.classList.remove("modal-open");
+
     }
   });
 
