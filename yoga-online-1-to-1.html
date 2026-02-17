@@ -371,24 +371,58 @@
           </div>
         </section>
 
-        <!-- PRICING (1-to-1 only) -->
-        <section class="pricing-section" id="register-section">
-          <div class="pricing-section">
-            <div class="pricing-container active">
-              <div class="pricing-box">
-                <h3>Online 1 to 1 Session</h3>
-                <p>₹ 30,000/-</p>
-                <ul>
-                  <li>Personal Instructor</li>
-                  <li>Customized Yoga Plan</li>
-                  <li>Flexible Timings</li>
-                  <li>Posture Correction</li>
-                </ul>
-                <button class="join-now" onclick="openTrialModal(199)">Join Trial ₹ 199</button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <!-- pricing section -->
+<section class="pricing-section" id="register-section">
+  <div class="pricing-section">
+    <div class="toggle-buttons">
+      <button id="oneToOneBtn" class="active">Yoga At Your Doorstep</button>
+      <!-- <button id="groupBtn">Online Private One to One Session</button> -->
+    </div>
+
+    <div id="oneToOne" class="pricing-container active">
+      <div class="pricing-box">
+        <h3>Yoga Training at Home</h3>
+        <p>₹ 30,000/-</p>
+        <ul>
+          <li>3 Months Package</li>
+          <li>Alternet Day's</li>
+          <li></li>
+        </ul>
+        <button class="join-now" onclick="openTrialModal(1000)">
+          Join Trial ₹ 1000
+        </button>
+      </div>
+
+      <div class="pricing-box">
+        <h3>Yoga Training at Home</h3>
+        <p>₹ 50,000/-</p>
+        <ul>
+          <li>3 Months Package</li>
+          <li>Monday to Friday</li>
+          <li></li>
+        </ul>
+        <button class="join-now" onclick="openTrialModal(1000)">
+          Join Trial ₹ 1000
+        </button>
+      </div>
+
+      <div class="pricing-box">
+        <h3>Yoga Training at Home</h3>
+        <p>₹ 90,000/-</p>
+        <ul>
+          <li>6 Months Package</li>
+          <li>Monday to Friday</li>
+          <li></li>
+        </ul>
+        <button class="join-now" onclick="openTrialModal(1000)">
+          Join Trial ₹ 1000
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
         <!-- FAQ (reused) -->
         <section class="faq-section">
@@ -543,73 +577,81 @@
     });
   </script>
 
-  <!-- JOIN TRIAL MODAL (same as your working one; SINGLE openTrialModal only) -->
-  <div class="donate-modal" id="donateModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center; padding:15px;">
-    <div class="donate-modal-content" style="background:#fff; width:100%; max-width:400px; padding:18px 20px 20px; border-radius:8px; position:relative; box-sizing:border-box;">
-      <span class="close-modal" style="position:absolute; top:10px; right:14px; font-size:26px; cursor:pointer;">&times;</span>
+  <!-- JOIN TRIAL MODAL -->
+<div class="donate-modal" id="donateModal">
+  <div class="donate-modal-content">
+    <span class="close-modal">&times;</span>
 
-      <h3>Join Trial</h3>
+    <h3>Join Trial</h3>
 
-      <form id="trialForm" style="display:flex; flex-direction:column;">
-        <input type="hidden" id="trialAmountHidden" value="199">
+    <form id="trialForm">
+      <input type="hidden" id="trialAmountHidden" value="1000">
 
-        <label>Name</label>
-        <input type="text" id="trialName" required>
+      <label>Name</label>
+      <input type="text" id="trialName" required>
 
-        <label>Email</label>
-        <input type="email" id="trialEmail" required>
+      <label>Email</label>
+      <input type="email" id="trialEmail" required>
 
-        <label>Mobile</label>
-        <input type="tel" id="trialPhone" required>
+      <label>Mobile</label>
+      <input type="tel" id="trialPhone" required>
 
-        <label>Trial Amount (₹)</label>
-        <input type="text" id="trialAmountDisplay" value="199" disabled>
+      <label>Trial Amount (₹)</label>
+      <input type="text" id="trialAmountDisplay" value="1000" disabled>
 
-        <label>Message (optional)</label>
-        <textarea id="trialMessage" style="resize:vertical; min-height:80px;"></textarea>
+      <label>Message (optional)</label>
+      <textarea id="trialMessage"></textarea>
 
-        <button type="submit" style="width:100%; padding:12px; background:#28a745; color:#fff; border:none; border-radius:4px; font-size:16px; font-weight:600; cursor:pointer;">
-          Submit Trial
-        </button>
-      </form>
-    </div>
+      <button type="submit" class="btn-submit">
+        Submit Trial
+      </button>
+    </form>
   </div>
+</div>
+
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const modal = document.getElementById("donateModal");
-      const closeBtn = modal.querySelector(".close-modal");
-      const form = document.getElementById("trialForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-      window.openTrialModal = function(amount) {
-        document.getElementById("trialAmountHidden").value = amount;
-        document.getElementById("trialAmountDisplay").value = amount;
-        modal.style.display = "flex";
-      };
+  const modal = document.getElementById("donateModal");
+  const closeBtn = modal.querySelector(".close-modal");
+  const form = document.getElementById("trialForm");
 
-      closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-      });
+  // ✅ open modal
+  window.openTrialModal = function(amount) {
+    document.getElementById("trialAmountHidden").value = amount;
+    document.getElementById("trialAmountDisplay").value = amount;
+    form.reset(); // ✅ clear old values every time
+    document.getElementById("trialAmountDisplay").value = amount; // keep amount visible
+    modal.style.display = "flex";
+  };
 
-      window.addEventListener("click", function (e) {
-        if (e.target === modal) modal.style.display = "none";
-      });
+  // ✅ close modal
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) modal.style.display = "none";
+  });
 
-        const name = document.getElementById("trialName").value.trim();
-        const email = document.getElementById("trialEmail").value.trim();
-        const phone = document.getElementById("trialPhone").value.trim();
-        const amount = document.getElementById("trialAmountHidden").value;
-        const message = document.getElementById("trialMessage").value.trim();
+  // ✅ submit → WhatsApp + reset
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        if (!name || !/^[A-Za-z\s]+$/.test(name)) { alert("Please enter a valid name"); return; }
-        if (!email || !/^\S+@\S+\.\S+$/.test(email)) { alert("Please enter a valid email"); return; }
-        if (!/^[6-9]\d{9}$/.test(phone)) { alert("Please enter a valid 10-digit mobile number"); return; }
+    const name = document.getElementById("trialName").value.trim();
+    const email = document.getElementById("trialEmail").value.trim();
+    const phone = document.getElementById("trialPhone").value.trim();
+    const amount = document.getElementById("trialAmountHidden").value;
+    const message = document.getElementById("trialMessage").value.trim();
 
-        const text =
-`🙏 New Trial Request (Online 1-to-1 Yoga)
+    if (!name) return alert("Please enter your name");
+    if (!/^[A-Za-z\s]+$/.test(name)) return alert("Name should contain only letters");
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) return alert("Please enter a valid email");
+    if (!/^[6-9]\d{9}$/.test(phone)) return alert("Please enter a valid 10-digit mobile number");
+
+    const text =
+`🙏 New Trial Request
 
 👤 Name: ${name}
 📧 Email: ${email}
@@ -617,12 +659,17 @@
 💰 Trial Amount: ₹${amount}
 📝 Message: ${message || "N/A"}`;
 
-        window.open("https://wa.me/918208367205?text=" + encodeURIComponent(text), "_blank");
-        form.reset();
-        modal.style.display = "none";
-      });
-    });
-  </script>
+    window.open("https://wa.me/918208367205?text=" + encodeURIComponent(text), "_blank");
+
+    // ✅ clear for next time + close
+    form.reset();
+    document.getElementById("trialAmountDisplay").value = amount;
+    modal.style.display = "none";
+  });
+
+});
+</script>
+
 
 </body>
 </html>
