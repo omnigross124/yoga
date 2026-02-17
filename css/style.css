@@ -9749,6 +9749,7 @@ body.sidebar-open .mainmenu-area.stricky-fixed {
 /* Show desktop version by default */
 .desktop-breadcrumb {
   display: block;
+   margin-top: 80px; 
 }
 
 /* Hide mobile version by default */
@@ -9756,6 +9757,8 @@ body.sidebar-open .mainmenu-area.stricky-fixed {
   display: none;
   position: relative;
   text-align: center;
+  overflow: hidden; /* prevents overflow issues */
+   margin-top: 80px;
 }
 
 .mobile-banner-img {
