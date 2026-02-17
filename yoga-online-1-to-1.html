@@ -27,6 +27,141 @@
       .mobile-breadcrumb { display: block; }
     }
   </style>
+  <style>
+  body {
+    visibility: hidden;
+  }
+  html.loaded body {
+    visibility: visible;
+  }
+  .donate-modal {
+  display: none; /* ✅ stays hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+}
+
+/* Modal box */
+.donate-modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+
+  padding: 18px 20px 20px;
+  border-radius: 8px;
+  position: relative;
+
+  /* KEY PART */
+  box-sizing: border-box;
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Reduce spacing so everything fits */
+.donate-modal-content label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.donate-modal-content input,
+.donate-modal-content textarea {
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.donate-modal-content textarea {
+  resize: none;
+  height: 60px;
+}
+
+/* FORM LAYOUT — THIS FIXES EVERYTHING */
+#trialForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#trialForm label {
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+#trialForm input,
+#trialForm textarea {
+  margin-top: 5px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#trialForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745; /* green */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #218838; /* slightly darker green */
+}
+/* FORCE X inside popup */
+#donateModal .donate-modal-content{
+  position: relative !important;
+}
+
+#donateModal .donate-modal-content .close-modal{
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 999999 !important;
+
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  color: #222 !important;
+}
+
+</style>
+<script>
+  window.addEventListener("load", function () {
+    document.documentElement.classList.add("loaded");
+  });
+</script>
 </head>
 
 <body>
@@ -371,6 +506,31 @@
           </div>
         </section>
 
+        <section class="testimonials">
+  <h2>TESTIMONIALS</h2>
+  <p>What our happy customers say about us</p>
+  <div class="testimonial-container">
+      <div class="testimonial-box">
+          <img src="image/avinash_sir.jpg" alt="Avinash Padmane" class="testimonial-image">
+          <p class="testimonial-text">&#8220; I absolutely love practicing yoga at home with their teachers! The guidance is amazing. &#8221;</p>
+          <h3>Avinash Padmane</h3>
+          <span>Founder at Omnigross</span>
+      </div>
+      <div class="testimonial-box">
+          <img src="image/ramesh_bagwe.jpg" alt="Ramesh Bagwe" class="testimonial-image">
+          <p class="testimonial-text">&#8220; The best decision I made! Practicing yoga at home has never been so convenient and effective. &#8221;</p>
+          <h3>Ramesh Bagwe</h3>
+          <span>Ex.Minister of State for Home Affairs (Maharashtra)</span>
+      </div>
+      <div class="testimonial-box">
+          <img src="image/team2.jpg" alt="Rahul Jadhav" class="testimonial-image">
+          <p class="testimonial-text">&#8220; Professional and friendly yoga teachers who truly care about your well-being. Highly recommend! &#8221;</p>
+          <h3>Rahul Jadhav</h3>
+          <span>Government Officer</span>
+      </div>
+  </div>
+</section>
+
         <!-- pricing section -->
 <section class="pricing-section" id="register-section">
   <div class="pricing-section">
@@ -381,7 +541,7 @@
 
     <div id="oneToOne" class="pricing-container active">
       <div class="pricing-box">
-        <h3>Yoga Training at Home</h3>
+        <h3>Online 1 to 1 session</h3>
         <p>₹ 30,000/-</p>
         <ul>
           <li>3 Months Package</li>
@@ -394,7 +554,7 @@
       </div>
 
       <div class="pricing-box">
-        <h3>Yoga Training at Home</h3>
+        <h3>Online 1 to 1 session</h3>
         <p>₹ 50,000/-</p>
         <ul>
           <li>3 Months Package</li>
@@ -407,7 +567,7 @@
       </div>
 
       <div class="pricing-box">
-        <h3>Yoga Training at Home</h3>
+        <h3>Online 1 to 1 session</h3>
         <p>₹ 90,000/-</p>
         <ul>
           <li>6 Months Package</li>
