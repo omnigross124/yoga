@@ -256,10 +256,11 @@
                             <li class="dropdown"><a href="#">Yoga</a>
                                 <ul>
                                     <li><a href="yoga-training-at-home.html">Yoga At Home</a></li>
-                                    <li><a href="online-yoga-classes.html">Yoga (Online)</a></li>
+                                    <li><a href="yoga-online-1-to-1.html">Yoga (Online 1 to 1 Session)</a></li>
+                                    <li><a href="online-yoga-classes.html">Yoga (Online Group Session)</a></li>
 
                                     <!-- ✅ NEW PAGE LINK ADDED HERE -->
-                                    <li><a href="yoga-studio-training.html">Yoga Studio Training</a></li>
+                                    <li><a href="yoga-studio-training.html">Yoga (Studio Group Session)</a></li>
 
                                     <li><a href="yoga-teacher-training-course.html">Teacher Training</a></li>
                                     <li><a href="corporate-yoga-wellness-program.html">Corporate Programs</a></li>
@@ -344,7 +345,7 @@
 </div>
 
 <!-- Desktop Breadcrumb (Keep as-is) -->
-<section class="breadcrumb-area desktop-breadcrumb" style="background-image: url(image/yoga_studio.png);">
+<section class="breadcrumb-area desktop-breadcrumb" style="background-image: url(image/yoga-online-desk.jpg);">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -358,7 +359,7 @@
 
 <!-- Mobile Breadcrumb (Only visible on small screens) -->
 <section class="mobile-breadcrumb">
-  <img src="image/yoga_studio1.png" alt="About Us Banner Mobile" class="mobile-banner-img">
+  <img src="image/yoga-online-mob.jpg" alt="About Us Banner Mobile" class="mobile-banner-img">
   <div class="mobile-breadcrumb-text">
     <h1></h1>
   </div>
@@ -1006,31 +1007,13 @@ document.body.classList.remove("modal-open");
       "https://wa.me/918208367205?text=" + encodeURIComponent(text),
       "_blank"
     );
+    form.reset();
   });
 
 });
 </script>
 
-<script>
-  const modal = document.getElementById("donateModal");
-  const closeBtn = modal.querySelector(".close-modal");
 
-  function openTrialModal(amount) {
-    document.getElementById("trialAmountHidden").value = amount;
-    document.getElementById("trialAmountDisplay").value = amount;
-    modal.style.display = "flex";
-  }
-
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-
-  window.onclick = (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  };
-</script>
 
 </body>
 </html>

@@ -10679,3 +10679,14 @@ body.sidebar-open .mainmenu-area.stricky-fixed {
     max-width: 92% !important;
   }
 }
+/* FIX: dropdown menu wrapping */
+.main-menu .navigation > li > ul {
+  min-width: 260px;       /* increase width (adjust if needed) */
+  width: auto;
+}
+
+.main-menu .navigation > li > ul > li > a {
+  white-space: nowrap;    /* prevent text from going to next line */
+  padding: 12px 18px;     /* better spacing */
+  line-height: 1.2;
+}

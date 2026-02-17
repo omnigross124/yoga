@@ -1265,7 +1265,13 @@ if (!Number.isInteger(amount) || amount < 1) {
     const whatsappURL =
       "https://wa.me/" + adminNumber + "?text=" + encodeURIComponent(text);
 
-    window.open(whatsappURL, "_blank");
+     window.open(whatsappURL, "_blank");
+
+// ✅ Reset form properly
+donateForm.reset();
+
+// ✅ Close modal
+modal.style.display = "none";
   });
 
 });
